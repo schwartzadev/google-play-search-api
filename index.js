@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const gplay = require("google-play-scraper");
-const port = 5555;
+const morgan = require("morgan");
+const port = 2222;
 
 const app = express();
 app.use(bodyParser.json())
+app.use(morgan("combined"));
 app.listen(port, () => {
   console.log(`Running on port ${port}.`);
   app.post("/search", function (req, res) {
